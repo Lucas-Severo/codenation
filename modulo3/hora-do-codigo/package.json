@@ -1,0 +1,17 @@
+{
+  "name": "hora-do-codigo",
+  "version": "1.0.0",
+  "description": "calculator package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Lucas Rodrigues Severo",
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
