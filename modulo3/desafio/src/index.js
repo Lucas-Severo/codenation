@@ -9,11 +9,11 @@ const fibonacci = () => {
     return numbers;
 }
 
-const isFibonnaci = (num) => {
+const isFibonacci = (num) => {
     return fibonacci().includes(num);
 }
 
 module.exports = {
     fibonacci,
-    isFibonnaci
+    isFibonacci
 }
