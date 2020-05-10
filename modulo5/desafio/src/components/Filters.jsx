@@ -11,10 +11,15 @@ class Filters extends React.Component {
 		this.props.changeData(result);
 	}
 
-	handleClick(event, filter) {
+	handleClick(event, filter, order = 0) {
 		const buttons = document.getElementsByTagName("button");
-		if(event.target.tagName !== "BUTTON")
-			event.target = event.target.parentElement;
+		if(event.target.tagName !== "BUTTON") {
+			event.target = event.target.parentElement;	
+		}
+		event.target.classList.toggle('round');
+
+		if(event.target.classList.contains('round'))
+			order = 1;
 		
 		for(let button of buttons) {
 			if(button.classList.contains("is-selected")) {
@@ -25,17 +30,25 @@ class Filters extends React.Component {
 			}
 		}
 
-		this.filterContacts(filter);
+		this.filterContacts(filter, order);
 	}
 
-	filterContacts(filter) {
+	filterContacts(filter, order) {
 		filter = String(filter);
 		const sorted = this.props.data.sort((a, b) => {
-			if(a[filter] < b[filter])
-			return -1;
-			if(a[filter] > b[filter])
-			return 1;
-			return 0;
+			if(order % 2 === 1) {
+				if(a[filter] < b[filter])
+					return -1;
+				if(a[filter] > b[filter])
+					return 1;
+				return 0;
+			} else {
+				if(a[filter] > b[filter])
+					return -1;
+				if(a[filter] < b[filter])
+					return 1;
+				return 0;
+			}
 		});
 		this.props.changeData(sorted);
 	}
