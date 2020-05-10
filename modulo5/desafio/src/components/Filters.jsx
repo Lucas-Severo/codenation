@@ -13,7 +13,9 @@ class Filters extends React.Component {
 
 	handleClick(event, filter) {
 		const buttons = document.getElementsByTagName("button");
-
+		if(event.target.tagName !== "BUTTON")
+			event.target = event.target.parentElement;
+		
 		for(let button of buttons) {
 			if(button.classList.contains("is-selected")) {
 				button.classList.toggle("is-selected");
