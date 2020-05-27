@@ -27,7 +27,7 @@ const ProfileRoute = (props) => {
         setUsername(profileData[0].username);
         setUserId(profileData[0].id);
       });
-  }, []);
+  }, [props.match.params]);
 
   useEffect(() => {
     if(id) {

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Provider, ReactReduxContext, useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 
 import Stories from '../../containers/Stories';
 import Loading from '../../components/Loading';
@@ -21,12 +21,12 @@ const FeedRoute = () => {
     dispatch(setUsersFetched(0));
     api('/users', 'GET')
       .then(response => { dispatch(setUsers(response)) });
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     api('/stories', 'GET')
       .then(response => { dispatch(setStories(response))})
-  }, [users]);
+  }, [users, dispatch]);
 
   useEffect(() => {
     if (usersFetched === users.length) {

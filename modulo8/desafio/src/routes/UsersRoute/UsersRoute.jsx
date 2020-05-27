@@ -18,7 +18,7 @@ const UsersRoute = () => {
           dispatch(setUsers(response));
         });
     }
-  }, []);
+  }, [users, dispatch]);
 
   return (
     <div className="container" data-testid="users-route">
