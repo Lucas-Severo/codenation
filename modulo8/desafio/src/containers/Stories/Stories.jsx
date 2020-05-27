@@ -22,7 +22,7 @@ const Stories = ({ stories }) => {
 
     setSelectedProfile(profileData);
     setSelectedHistory(foundStory);
-    toggleShowStory(!showStory);
+    toggleShowStory(!showStory);  
   };
 
   return (
